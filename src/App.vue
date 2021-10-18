@@ -1,8 +1,8 @@
 <template>
-<v-container fluid class="fill-height">
+<v-container fluid class="fill-height align-start">
   <v-row>
     <v-col cols="12">
-      <span class="injected">orange</span>
+      <monaco-editor class="wrapper"></monaco-editor>
     </v-col>
   </v-row>
 </v-container>
@@ -10,15 +10,17 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex';
-
+import MonacoEditor from '@/components/MonacoEditor.vue'
 export default {
 
   name: 'App',
   props: [''],
-  components: {},
+  components: {
+    MonacoEditor
+  },
   data () {
     return {
-      color: 'orange'
+
     }
   },
   mounted(){
@@ -45,11 +47,11 @@ export default {
 }
 </script>
 
-<style lang="scss" vars scoped>
+<style lang="scss" scoped>
 
-.injected{
-  // color: 'orange';
-  color: v-bind(color);
+
+.wrapper{
+  height: 500px;
 }
 
 </style>
